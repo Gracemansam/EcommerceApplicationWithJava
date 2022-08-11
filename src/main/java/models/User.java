@@ -5,6 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,14 +22,26 @@ public class User implements Serializable {
     private String password;
     private String avatar;
 
-    //Customer
+    public static Map<Integer ,Product> cart;
+    //Customer contructor
+
+
     public User(String name, String email, String password, String avatar) {
         Name = name;
         Email = email;
         this.password = password;
         this.avatar = avatar;
+        this.cart = new HashMap<>();
     }
 
+    public User(int id ,String name, String email, String password, String avatar) {
+        this.id = id;
+        this.Name = name;
+        this.Email = email;
+        this.password = password;
+        this.avatar = avatar;
+        this.cart = new HashMap<>();
+    }
     //Admin
     public User(String name, String username, String password) {
         Name = name;
